@@ -4,6 +4,10 @@ import router from './router'
 import Vant from 'vant'
 import 'vant/lib/index.css'
 
+<<<<<<< HEAD
+=======
+Vue.use(Vant);
+>>>>>>> qwe
 
 Vue.config.productionTip = false
 Vue.use(Vant)
