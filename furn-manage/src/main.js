@@ -3,7 +3,9 @@ import App from './App.vue'
 import router from './router'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+import {axios} from "axios"
 
+Vue.prototype.$ajax = axios
 Vue.use(Vant);
 
 Vue.config.productionTip = false
