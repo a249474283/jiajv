@@ -1,15 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-
+import ShopCart from './views/ShopCart.vue'
+import Detali from './views/Detali.vue'
+import UserCenter from './views/UserCenter.vue'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/ShopCart',
+      name: 'ShopCart',
+      component: ShopCart
+    },
+    {
+      path: '/Detali',
+      name: 'Detali',
+      component: Detali
+    },
+    {
+      path: '/UserCenter',
+      name: 'UserCenter',
+      component: UserCenter
     },
     {
       path: '/about',
