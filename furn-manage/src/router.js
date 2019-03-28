@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-// import List from './views/List.vue'
-// import Detail from './views/Detail.vue'
-// import Login from './views/Login.vue'
-// import Reg from './views/Reg.vue'
-// import Orders from './views/Orders.vue'
-// import ShopCart from './views/ShopCart.vue'
-// import UserCenter from './views/UserCenter.vue'
+ import List from './views/List.vue'
+ import Detail from './views/Detail.vue'
+ import Login from './views/Login.vue'
+ import Reg from './views/Regis.vue'
+ import Orders from './views/Orders.vue'
+ import ShopCart from './views/ShopCart.vue'
+ import UserCenter from './views/UserCenter.vue'
 import { isLogined } from './utils/auth'
 
 Vue.use(Router);
@@ -16,45 +16,45 @@ const router =  new Router({
     path: '/', // 路由跳转 当我路由什么都不输入的话, 访问的是home页 首页
     name: 'Home',
     component: Home
-   }, 
-  //  {
-  //   path: '/list',
-  //   name: 'List',
-  //   component: List,
-  // }, {
-  //   path: '/list/:id',
-  //   name: 'Detail',
-  //   component: Detail,
-  // }, {
-  //   path: '/login',
-  //   name: 'Login',
-  //   component: Login,
-  // }, {
-  //   path: '/reg',
-  //   name: 'Reg',
-  //   component: Reg,
-  // }, {
-  //   path: '/shop_cart',
-  //   name: 'ShopCart',
-  //   component: ShopCart,
-  //   meta: { // meta属性 --> 元标签(元属性)
-  //     needLogin: true,  // 需要登录  在meta标签里设置的一个属性, 属性表示 需要登录
-  //   },
-  // }, {
-  //   path: '/user_center',
-  //   name: 'UserCenter',
-  //   component: UserCenter,
-  //   meta: { // meta属性 --> 元标签(元属性)
-  //     needLogin: true,  // 需要登录  在meta标签里设置的一个属性, 属性表示 需要登录
-  //   },
-  // }, {
-  //   path: '/orders',
-  //   name: 'Orders',
-  //   component: Orders,
-  //   meta: { // meta属性 --> 元标签(元属性)
-  //     needLogin: true,  // 需要登录  在meta标签里设置的一个属性, 属性表示 需要登录
-  //   },
-  // },
+   },
+   {
+    path: '/list',
+    name: 'List',
+    component: List,
+  }, {
+    path: '/list/:id',
+    name: 'Detail',
+    component: Detail,
+  },
+   {  path: '/login',
+     name: 'Login',
+     component: Login,
+   }, {
+     path: '/reg',
+    name: 'Reg',
+     component: Reg,
+   },
+  {  path: '/shop_cart',
+    name: 'ShopCart',
+    component: ShopCart,
+    meta: { // meta属性 --> 元标签(元属性)
+      needLogin: true,  // 需要登录  在meta标签里设置的一个属性, 属性表示 需要登录
+    },
+  }, {
+    path: '/user_center',
+    name: 'UserCenter',
+    component: UserCenter,
+    meta: { // meta属性 --> 元标签(元属性)
+      needLogin: true,  // 需要登录  在meta标签里设置的一个属性, 属性表示 需要登录
+    },
+  }, {
+    path: '/orders',
+    name: 'Orders',
+    component: Orders,
+    meta: { // meta属性 --> 元标签(元属性)
+      needLogin: true,  // 需要登录  在meta标签里设置的一个属性, 属性表示 需要登录
+    },
+  },
   {
     path: '/about',
     name: 'about',

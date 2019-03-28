@@ -10,6 +10,15 @@ const eventBus = new Vue();
 Vue.config.productionTip = false;
 Vue.use(Vant); // 引用Vant 这个插件
 Vue.prototype.$eventBus = eventBus;
+// import Vant from 'vant'
+// import 'vant/lib/index.css'
+import {axios} from "axios"
+
+Vue.prototype.$ajax = axios
+
+// // Vue.config.productionTip = false
+// Vue.use(Vant)
+
 new Vue({
   router,
   render: h => h(App)
