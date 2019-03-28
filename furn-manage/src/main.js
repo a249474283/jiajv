@@ -5,17 +5,12 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 import {axios} from "axios"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
+
 Vue.prototype.$ajax = axios
->>>>>>> qwe
 Vue.use(Vant);
->>>>>>> qwe
 
 Vue.config.productionTip = false
-Vue.use(Vant)
+
 
 new Vue({
   router,

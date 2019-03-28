@@ -36,7 +36,7 @@
       login:function(){
         axios({
           method:"post",
-          url:'http://api.cat-shop.penkuoer.com/api/v1/auth/login',
+          url:'https://api.cat-shop.penkuoer.com/api/v1/auth/login',
           data:{
             userName:this.userName,
             password:this.passWord
