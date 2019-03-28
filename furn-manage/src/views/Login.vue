@@ -2,7 +2,7 @@
   <div class="login">
     <h1>登录</h1>
   <router-link :to="{name:'Home'}">首页</router-link>
-  <router-link :to="{name:'Regis'}">注册</router-link>
+  <router-link :to="{name:'Reg'}">注册</router-link>
   <van-cell-group>
     <van-field
       v-model="userName"
@@ -29,7 +29,7 @@
        return{
         userName:"",
         passWord:"",
-       } 
+       }
     },
     methods:{
       //登录按钮
