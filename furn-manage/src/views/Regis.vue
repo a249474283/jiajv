@@ -39,6 +39,7 @@
   </div>
 </template>
 <script>
+  const axios = require('axios');
   export default {
     data(){
       return {
@@ -71,6 +72,33 @@
         if(!this.passWords){
           this.wordst = "请再次输入密码";
         }
+        if(this.Name&&this.Word&&this.Words){
+
+            axios({
+              method:"post",
+              url:'https://api.cat-shop.penkuoer.com/api/v1/auth/reg',
+              data:{
+                userName:this.userName,
+                password:this.passWord,
+              }
+            })
+            .then(function(data){
+              console.log(data.data.code)
+              if(data.data.code=="success"){
+                confirm("用户注册成功")
+                this.$router.push({
+                  name:"Login"
+                  })
+              }else{
+                alert("用户名已存在")
+              }
+            }.bind(this))
+            .catch(function(err){
+              console.log(err);
+            })
+
+          }
+  
       },
       //用户名验证
       userFo:function(){
@@ -80,14 +108,18 @@
         var username = this.userName;
         if(username.length<4||username.length>10){
           this.usertjg = 1;
+          this.usertcg = 0;
           this.usert = "用户名应在4~10位之间";
         }else{
           //调用接口检查用户名是否重复
+          this.Name++;
         }
       },
       wordFo:function(){
         this.wordt = "请输入6~20位的字母和数字的组合"
       },
+
+      //密码验证
       wordIn:function(){
         var password = this.passWord;
         let rega=/\D/;
@@ -113,6 +145,7 @@
         if(this.passWords==this.passWord){
           this.wordstcg = 1;
           this.wordst="密码一致";
+          this.Words++;
         }else{
           this.wordstcg = 0;
           this.wordstjg = 1;

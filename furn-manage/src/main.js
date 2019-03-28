@@ -3,9 +3,14 @@ import App from './App.vue'
 import router from './router'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+import {axios} from "axios"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+Vue.prototype.$ajax = axios
+>>>>>>> qwe
 Vue.use(Vant);
 >>>>>>> qwe
 
