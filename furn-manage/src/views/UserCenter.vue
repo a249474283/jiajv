@@ -54,6 +54,7 @@ export default {
 </script>
 
 <style lang="less">
+h1{text-align: center;}
 .user {
   &-poster {
     width: 100%;

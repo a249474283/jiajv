@@ -108,7 +108,7 @@ export default {
   flex-shrink: 0;
   width:100%;
   height:4.375rem;
-  margin-top: 7.5rem;
+  margin-top: 3.5rem;
 }
 .footer-r button{
   border:none;
