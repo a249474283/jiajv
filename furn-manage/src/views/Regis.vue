@@ -1,8 +1,8 @@
 <template>
   <div class="regis">
-    <h1>注册</h1>
+    <img class="logo" src="../../public/images/logo.png"/>
+
       <router-link :to="{name:'Home'}" class="regis1">【首页】</router-link>
-      <router-link :to="{name:'Login'}" >【登录】</router-link>
         <van-cell-group class="regis2">
           <div class="ts"></div>
           <van-field
@@ -35,6 +35,7 @@
           />
           <div :class="{ts:'true',jg:wordstjg,cg:wordstcg}">{{wordst}}</div>
           <van-button size="large" @click="reg" type="info">注册</van-button>
+          <p class="yzc">已有账号？<router-link :to="{name:'Login'}" >登录</router-link></p>
         </van-cell-group>
   </div>
 </template>
@@ -162,6 +163,11 @@ body {
 .regis1 {
   margin-left: 9rem;
 }
+.yzc{
+  width: 200px;
+  font-size: 12px;
+  float:right;
+}
 .van-cell__title {
   margin-left: 1.2rem;
 }
@@ -190,5 +196,11 @@ h1 {
   opacity: 0.7;
   color: #fff;
   border-radius: 10px;
+}
+.logo{
+  width: 155px;
+  height: 72px;
+  display: block;
+  margin: 0 auto;
 }
 </style>
