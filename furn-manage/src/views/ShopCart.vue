@@ -102,6 +102,9 @@ export default {
 
 <style lang="less">
 .card-goods {
+  width:100%;
+  height:664px;
+  overflow:auto;
   padding: 10px 0;
   background-color: #fff;
   &__item {
