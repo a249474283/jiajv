@@ -3,7 +3,6 @@ import Vant from 'vant' // 引入已安装好的 Vant ui 这个插件
 import 'vant/lib/index.css'
 import App from './App.vue'
 import router from './router'
-import Vant from 'vant'
 import 'vant/lib/index.css'
 import {axios} from "axios"
 

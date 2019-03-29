@@ -97,20 +97,18 @@ export default {
   right:0.625rem;
 }
 .van-cell__title{
-  margin-left: -2.8125rem;;
-}
-.custom-text{
-  padding-left:0.5625rem;
+  margin-left: 0.2rem;
 }
 .xianxia{
-  margin-left:-15.25rem;
+  margin-left:0.45rem;
 }
-.chakan{margin-left:-15rem;}
+.chakan{margin-left:0rem;}
 
 .footer{
   flex-shrink: 0;
   width:100%;
   height:4.375rem;
+  margin-top: 7.5rem;
 }
 .footer-r button{
   border:none;
@@ -126,6 +124,8 @@ export default {
 .footer-r  button:nth-of-type(2){
   background:red;
 } 
-
+.Detali {
+  margin-top: 55px;
+}
 </style>
 

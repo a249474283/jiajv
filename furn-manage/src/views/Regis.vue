@@ -1,9 +1,9 @@
 <template>
   <div class="regis">
     <h1>注册</h1>
-      <router-link :to="{name:'Home'}">首页</router-link>
-      <router-link :to="{name:'Login'}">登录</router-link>
-        <van-cell-group>
+      <router-link :to="{name:'Home'}" class="regis1">【首页】</router-link>
+      <router-link :to="{name:'Login'}" >【登录】</router-link>
+        <van-cell-group class="regis2">
           <div class="ts"></div>
           <van-field
             v-model="userName"
@@ -96,9 +96,7 @@
             .catch(function(err){
               console.log(err);
             })
-
           }
-  
       },
       //用户名验证
       userFo:function(){
@@ -157,17 +155,40 @@
   }
 
 </script>
-<style>
-  .ts{
-    height:24px;
-    color: #cecece;
-    font-size: 12px;
-    line-height: 24px;
-  }
-  .jg{
-    color:#f00;
-  }
-  .cg{
-    color:#0f0;
-  }
+<style scoped>
+body {
+  background: url(/images/login-bgc.gif) no-repeat;
+}
+.regis1 {
+  margin-left: 9rem;
+}
+.van-cell__title {
+  margin-left: 1.2rem;
+}
+.ts{
+  height:24px;
+  color: #cecece;
+  font-size: 12px;
+  line-height: 24px;
+}
+.jg{
+  color:#f00;
+}
+.cg{
+  color:#0f0;
+}
+.regis {
+  margin-top: 110px;
+}
+h1 {
+  text-align: center;
+}
+.regis2 {
+  margin-top: 3rem;
+  margin-left: 2.6rem;
+  width: 20rem;
+  opacity: 0.7;
+  color: #fff;
+  border-radius: 10px;
+}
 </style>

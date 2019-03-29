@@ -13,19 +13,19 @@
         <van-col span="6">
           <router-link :to="{ name: 'Home' }">
             <img :src="classify[0]"/>
-            <van-tag class="classify-txt">中式</van-tag>
+            <van-tag class="classify-txt" color="#ddb788">中式</van-tag>
           </router-link>
         </van-col>
         <van-col span="6">
           <router-link :to="{ name: 'Home' }">
             <img :src="classify[1]"/>
-            <van-tag class="classify-txt">新古典</van-tag>
+            <van-tag class="classify-txt" color="#ddb788">新古典</van-tag>
           </router-link>
         </van-col>
         <van-col span="6">
           <router-link :to="{ name: 'Home' }">
             <img :src="classify[2]"/>
-            <van-tag class="classify-txt">北欧</van-tag>
+            <van-tag class="classify-txt" color="#ddb788">北欧</van-tag>
           </router-link>
         </van-col>
       </van-row>
@@ -33,19 +33,19 @@
         <van-col span="6">
           <router-link :to="{ name: 'Home' }">
             <img :src="classify[3]"/>
-            <van-tag class="classify-txt">简美</van-tag>
+            <van-tag class="classify-txt" color="#ddb788">简美</van-tag>
           </router-link>
         </van-col>
         <van-col span="6">
           <router-link :to="{ name: 'Home' }">
             <img :src="classify[4]"/>
-            <van-tag class="classify-txt">美式</van-tag>
+            <van-tag class="classify-txt" color="#ddb788">美式</van-tag>
           </router-link>
         </van-col>
         <van-col span="6">
           <router-link :to="{ name: 'Home' }">
             <img :src="classify[5]"/>
-            <van-tag class="classify-txt">地中海</van-tag>
+            <van-tag class="classify-txt" color="#ddb788">地中海</van-tag>
           </router-link>
         </van-col>
       </van-row>
@@ -90,7 +90,7 @@
     </div>
     <div class="list">
       <h4>家具展示</h4>
-      <van-card
+      <!-- <van-card
         v-for="product in products"
         :num="product.quantity"
         :price="product.price"
@@ -99,13 +99,23 @@
         :thumb="serverUrl + product.coverImg"
         :key="product._id"
         :thumb-link="`#/detail`"
-      >
+      > -->
       <!-- thumb-link代表点击之后跳转到详情页 -->
-        <div slot="footer">
-          <van-button size="mini" @click="addToCartHandle(product._id)"><van-icon class="btn-cart" name="cart" /></van-button>
+        <!-- <div slot="footer">
+          <van-button size="mini" @click="addToCartHandle(product._id)"></van-button>
         </div>
-      </van-card>
-      <van-button size="large" @click="loadMore">加载更多</van-button>
+      </van-card> -->
+      <!-- <van-button size="large" @click="loadMore">加载更多</van-button> -->
+      <ul>
+        <li v-for="product in products" :key="product._id">
+          <img :src="serverUrl + product['coverImg']" alt="">
+          <div class="list-left">
+            <span>{{product.name}}</span>
+            <p>￥{{product.price}}</p>
+            <router-link :to="{ name: 'Detail' }" class="list-link"><u>详 情</u></router-link>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -179,55 +189,60 @@ export default {
 </script>
 
 <style>
+.home {
+  margin-top: 54px;
+}
 .swipe-img {
   width: 100%;
   height: 12rem;
 }
 .classify{
-  margin-top: 12px;
+  margin-top: 1rem;
 }
 .home-classify img {
-  width: 100%;
-  height: 6rem;
+  width: 7rem;
+  height: 7rem;
   border-radius: 10%;
 }
 .classify-txt {
-  margin-left: 30%
+  margin-left: 32%;
+  font-size: 14px;
+  text-align: center;
 }
 .new-product {
-  margin-top: 12px;
+  margin-top: 2rem;
 }
 .product-show {
-  margin-top: 12px;
+  margin-top: 1.5rem;
   position: relative;
 }
 .product-show img {
   width: 100%;
-  height: 10rem
+  height: 10rem;
 }
 .show-txt {
   width: 10rem;
   position: absolute;
   background-color: #ccc;
   opacity:0.6;
-  top: 70px;
-  left: 130px;
+  top: 4rem;
+  left: 8rem;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 1rem;
 }
 .show-txt span {
   font-weight: 600;
 }
 .show-txt p {
-  margin-top: 8px;
-  padding-top: 5px;
+  margin-top: 0.5rem;
+  padding-top:  0.5rem;
   font-size: 14px;
   font-weight: 500;
   border-top: 1px solid #000;
 }
 .new-product h4 {
   font-weight: 600;
-  margin-left: 5px;
+  margin-left: 0.5rem;
   color: #D26900;
 }
 .new-product img {
@@ -239,17 +254,52 @@ export default {
 }
 .new-product1 div {
   position: absolute;
-  padding-bottom: 3px;
+  padding-bottom: 0.2rem;
   border-bottom: 1px solid #ffffff;
-  top: 60px;
-  left: 14px;
+  top: 4.2rem;
+  left: 0.9rem;
   font-size: 12px;
   color: #fff
 }
+.list {
+  padding-bottom: 60px;
+}
 .list h4 {
   font-weight: 600;
-  margin-left: 5px;
+  margin-left: 0.5rem;
   color: #D26900;
+}
+.list li {
+  display: flex;
+  margin-top: 1rem;
+}
+.list li img {
+  width: 7rem;
+  height: 7rem;
+  margin-left: 0.8rem;
+}
+.list-left {
+  background-color: #F0F0F0;
+  width: 17.5rem;
+  height:7rem;
+}
+.list-left span {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 0.8rem;
+  margin-top: 2rem;
+  color: #303030;
+}
+.list-left p {
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 0.9rem;
+  color: #e62318;
+}
+.list-left .list-link {
+  font-size: 12px;
+  margin-left: 14.5rem;
+  color: #787878;
 }
 .btn-cart {
   color: orangered;

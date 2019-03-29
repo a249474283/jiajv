@@ -1,26 +1,27 @@
 <template>
   <div class="login">
     <h1>登录</h1>
-  <router-link :to="{name:'Home'}">首页</router-link>
-  <router-link :to="{name:'Reg'}">注册</router-link>
-  <van-cell-group>
-    <van-field
-      v-model="userName"
-      label="用户名"
-      placeholder="请输入用户名"
-      required
-    />
-    <van-field
-      v-model="passWord"
-      label="密码"
-      type="password"
-      placeholder="请输入密码"
-      required
-    />
-    <van-button size="large" @click="login" type="info">登录</van-button>
-  </van-cell-group>
+    <router-link :to="{name:'Home'}" class="login1">【首页】</router-link>
+    <router-link :to="{name:'Reg'}">【注册】</router-link>
+    <van-cell-group class="login2">
+      <van-field
+        v-model="userName"
+        label="用户名"
+        placeholder="请输入用户名"
+        required
+      />
+      <van-field
+        v-model="passWord"
+        label="密码"
+        type="password"
+        placeholder="请输入密码"
+        required
+      />
+      <van-button class="lg" size="large" @click="login" type="info">登录</van-button>
+    </van-cell-group>
   </div>
 </template>
+
 <script>
   const axios = require('axios');
   import { loginIn } from "../utils/auth"
@@ -67,3 +68,31 @@
     }
   }
 </script>
+<style scoped>
+/* body {
+  background: url(/images/login-bgc.gif) no-repeat;
+} */
+body{height:736px;
+  background: url(/images/login-bgc.gif);
+ 
+}
+.login {
+ 
+  margin-top: 130px;
+}
+.login1 {
+  margin-left: 9rem;
+}
+.login2 {
+  margin-top: 3rem;
+  margin-left: 2.6rem;
+  width: 20rem;
+  opacity: 0.7;
+  color: #fff;
+  border-radius: 20px;
+}
+.lg {
+  margin-top: 1.5rem;
+}
+h1{text-align: center;}
+</style>

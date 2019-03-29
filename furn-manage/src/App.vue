@@ -87,6 +87,13 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10001;
+
 }
 .nav-top .search {
   width: 18rem;

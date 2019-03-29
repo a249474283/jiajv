@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
- import List from './views/List.vue'
- import Detail from './views/Detail.vue'
- import Login from './views/Login.vue'
- import Reg from './views/Regis.vue'
- import Orders from './views/Orders.vue'
- import ShopCart from './views/ShopCart.vue'
- import UserCenter from './views/UserCenter.vue'
+import List from './views/List.vue'
+import Detail from './views/Detail.vue'
+import Login from './views/Login.vue'
+import Reg from './views/Regis.vue'
+import Orders from './views/Orders.vue'
+import ShopCart from './views/ShopCart.vue'
+import UserCenter from './views/UserCenter.vue'
 import { isLogined } from './utils/auth'
 
 Vue.use(Router);
@@ -22,7 +22,7 @@ const router =  new Router({
     name: 'List',
     component: List,
   }, {
-    path: '/list/:id',
+    path: '/detail',
     name: 'Detail',
     component: Detail,
   },
