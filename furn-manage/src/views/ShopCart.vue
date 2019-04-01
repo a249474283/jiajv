@@ -26,7 +26,11 @@
 </template>
 <script>
 import { Checkbox, CheckboxGroup, Card, SubmitBar, Toast } from 'vant';
+const axios = require('axios');
 export default {
+  mounted:function(){
+    this.getData();
+  },
   components: {
     [Card.name]: Card,
     [Checkbox.name]: Checkbox,
@@ -74,8 +78,9 @@ export default {
         num: 1,
         thumb: 'https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/1796488067/O1CN01xTrith29SjZapma7A_!!1796488067.jpg_230x230.jpg_.webp'
       }
-      ]
-    };
+      ],
+      token:""
+    }
   },
   computed: {
     submitBarText() {
@@ -95,6 +100,27 @@ export default {
       this.$router.push({
         name:'UserCenter'
       })
+    },
+    getData(){
+      if(!sessionStorage.getItem("token")){
+        alert("请先登录");
+        this.$router.push({
+          name:'Login'
+        })
+      }else{
+        this.token=sessionStorage.getItem("token");
+        axios({
+          method:"get",
+          url:"https://api.cat-shop.penkuoer.com/api/v1/shop_carts",
+          headers:{
+          "authorization":"bearer "+ this.token
+          }
+        })
+        .then(function(data){
+          console.log(data.data);
+        })
+      }
+      
     }
   }
 };

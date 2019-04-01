@@ -56,11 +56,6 @@ export default {
   },
   methods:{
     getData(){
-    //   axios({
-    //     method:"get",
-    //     url:'https://api.cat-shop.penkuoer.com/api/v1/products/'+this.$route.params.id,
-
-    //  })
     axios.get('https://api.cat-shop.penkuoer.com/api/v1/products/'+this.$route.params.id)
       .then(function(data){
         this.shopData = data.data;
@@ -83,7 +78,7 @@ export default {
       //     }
       // })
       axios.post('https://api.cat-shop.penkuoer.com/api/v1/shop_carts',{
-        product:"this.$route.params.id"
+        product:this.$route.params.id
       },{
         headers:{
           "authorization":"bearer "+ this.token

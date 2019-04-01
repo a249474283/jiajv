@@ -35,32 +35,38 @@
     methods:{
       //登录按钮
       login:function(){
-        axios({
-          method:"post",
-          url:'https://api.cat-shop.penkuoer.com/api/v1/auth/login',
-          data:{
-            userName:this.userName,
-            password:this.passWord
-          }
-        })
-        .then(function(data){
-          console.log(data);
-          if(data.data.code=="success"){
-            alert("登录成功");
-            loginIn("userName",this.userName);
-            loginIn("token",data.data.token);
-            this.$router.push({
-              name:"Home"
-            })
-          }else if(data.data.message == "user not found"){
-            alert("该用户尚未注册");
-          }else{
-            alert("用户密码错误");
-          }
-        }.bind(this))
-        .catch(function(err){
-          console.log(err);
-        })
+        if(!this.userName){
+          alert("请输入用户名！");
+        }else{
+          console.log(this.userName);
+          axios({
+            method:"post",
+            url:'https://api.cat-shop.penkuoer.com/api/v1/auth/login',
+            data:{
+              userName:this.userName,
+              password:this.passWord
+            }
+          })
+          .then(function(data){
+            console.log(data);
+            if(data.data.code=="success"){
+              alert("登录成功");
+              loginIn("userName",this.userName);
+              loginIn("token",data.data.token);
+              this.$router.push({
+                name:"Home"
+              })
+            }else if(data.data.message == "user not found"){
+              alert("该用户尚未注册");
+            }else{
+              alert("用户密码错误");
+            }
+          }.bind(this))
+          .catch(function(err){
+            console.log(err);
+          })
+        }
+        
       },
       gitData(){
 
