@@ -22,8 +22,9 @@
             
             </div>
         </van-card>
-        <van-button class="page" type="info" size="normal" @click="next">下一页</van-button>
         <van-button class="page" type="info" size="normal" @click="prev">上一页</van-button>
+        <van-button class="page" type="info" size="normal" @click="next">下一页</van-button>
+        
     </div>
 </template>
 <script>
