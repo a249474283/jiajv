@@ -4,7 +4,7 @@
       <button class="nav-btn" @click="messagePromptHandle">
         <van-icon class="icon1" name="envelop-o" />
       </button>
-      <van-search class="search" placeholder="请输入搜索关键词" v-model="value" />
+      <van-search class="search" placeholder="请输入搜索关键词" />
       <van-icon class="icon2" name="scan" />
     </div>
     <router-view/>
@@ -56,7 +56,7 @@ export default {
         break;
         case 1:
           this.$router.push({
-            name: 'Detail',
+            name: 'List',
           });
         break;
         case 2:

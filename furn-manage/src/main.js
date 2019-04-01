@@ -5,7 +5,9 @@ import App from './App.vue'
 import router from './router'
 import 'vant/lib/index.css'
 import {axios} from "axios"
+import { Icon } from 'vant';
 
+Vue.use(Icon);
 
 Vue.prototype.$ajax = axios
 Vue.use(Vant);

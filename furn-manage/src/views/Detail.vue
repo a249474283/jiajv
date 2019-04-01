@@ -2,17 +2,17 @@
   <div class="Detali">
     <div class="header">
       <van-swipe :autoplay="3000">
-        <van-swipe-item v-for="(image, index) in images" :key="index">
-          <img class="images" :src="image"/>
+        <van-swipe-item >
+          <img class="images" :src="'https://api.cat-shop.penkuoer.com/'+shopData.coverImg"/>
         </van-swipe-item>
       </van-swipe>
     </div>
     <div class="section">
         <div class="jieshao">
-          <p>老榆木新中式餐椅茶椅 禅意家具圈椅 官帽椅 梳背椅 客人实木椅子<span>【￥3459】</span></p>
+          <p>{{shopData.descriptions}}<span>{{shopData.price}}</span><span>元</span></p>
           <van-rate v-model="value" icon="like" void-icon="like-o" class="v-rate"></van-rate>
         </div>
-      <van-cell title="运费：免运费" value="剩余；19"/>
+      <van-cell title="运费：免运费" value="剩余：19"/>
       <van-cell value="进入店铺" icon="shop-o" is-link>
           <template slot="title">
             <span class="custom-text">有赞的店</span>
@@ -20,7 +20,7 @@
           </template>
         </van-cell>
         <van-cell title="线下门店" icon="location-o" is-link title-class="xianxia"/>
-        <van-cell title="查看商品详情" is-link to="/ShopCart" title-class="chakan" />
+        
     </div>
      <div class="footer">
        <div class="footer-r">
@@ -33,7 +33,8 @@
   </div>
 </template>
 <script>
-const axios=require('axios');
+//const axios=require('axios');
+import axios from "axios"
 export default {
   data() {
     return {
@@ -44,29 +45,59 @@ export default {
         'http://img2.imgtn.bdimg.com/it/u=64702178,3014949498&fm=26&gp=0.jpg',
         'http://img0.imgtn.bdimg.com/it/u=531552697,2945058719&fm=26&gp=0.jpg'
       ],
-    value: 3,
-    active: 0
+      value: 3,
+      active: 0,
+      shopData:"",
+      token:"",
     }
   },
+  mounted:function(){
+    this.getData();
+  },
   methods:{
-    // axios({
-    //   method:"get",
-    //   url:'http://api.cat-shop.penkuoer.com/api/v1/products',
-    //   data:{
-    //     per:"1",
-    //     page:'1'
-    //   }
-    // })
-    // .then(function(data){
-    //  console.log(data)
-    // })
-    // .catch(function(err){
-    //   console.log(err)
-    // }),
+    getData(){
+    //   axios({
+    //     method:"get",
+    //     url:'https://api.cat-shop.penkuoer.com/api/v1/products/'+this.$route.params.id,
+
+    //  })
+    axios.get('https://api.cat-shop.penkuoer.com/api/v1/products/'+this.$route.params.id)
+      .then(function(data){
+        this.shopData = data.data;
+        console.log(this.shopData);
+      }.bind(this))
+    },
    shopcartHandle(){
-     this.$router.push({
-       name:'ShopCart'
-     })
+     if(!sessionStorage.getItem("token")){
+       alert("请先登录");
+        this.$router.push({
+          name:'Login'
+        })
+     }else{
+        this.token=sessionStorage.getItem("token");
+      //   axios({
+      //     method:"get",
+      //     url:'https://api.cat-shop.penkuoer.com/api/v1/shop_carts',
+      //     data:{
+
+      //     }
+      // })
+      axios.post('https://api.cat-shop.penkuoer.com/api/v1/shop_carts',{
+        product:"this.$route.params.id"
+      },{
+        headers:{
+          "authorization":"bearer "+ this.token
+        }
+      })
+      .then(function(data){
+        console.log(data);
+        this.$router.push({
+          name:'ShopCart'
+        })
+      }.bind(this))
+     }
+    
+     
    }
   }
 }

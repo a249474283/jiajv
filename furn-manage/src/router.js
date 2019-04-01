@@ -9,7 +9,9 @@ import Orders from './views/Orders.vue'
 import ShopCart from './views/ShopCart.vue'
 import UserCenter from './views/UserCenter.vue'
 import { isLogined } from './utils/auth'
+import { Card } from 'vant';
 
+Vue.use(Card);
 Vue.use(Router);
 const router =  new Router({
   routes: [{
@@ -22,7 +24,7 @@ const router =  new Router({
     name: 'List',
     component: List,
   }, {
-    path: '/detail',
+    path: '/detail/:id',
     name: 'Detail',
     component: Detail,
   },
@@ -66,12 +68,7 @@ const router =  new Router({
   ]
 })
 router.beforeEach(function(to, from, next) {
-  console.group('路由跳转之前');
-  console.log('执行了');
-  console.log(to);
-  console.log(from);
-  console.log(next);
-  console.groupEnd();
+
   if(to.meta.needLogin) { // 在每一个路由的钩子函数中,判断当前的页面(跳转地址)是否需要登录 当我跳转到的页面里面的meta标签,里面有一个needLogin属性的话, 执行一个事情
     if(isLogined()) { // 判断 是否已经登录的时候,判断条件是导出模块中的isLogined()封装好的方法-->做为判断条件 
                       //   如果已经点击了"登录按钮",本地就已经有了sessionStorage数据,反之 则没有存储

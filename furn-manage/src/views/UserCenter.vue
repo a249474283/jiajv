@@ -29,8 +29,8 @@
       <van-cell icon="gold-coin-o" title="我的优惠券" is-link />
       <van-cell icon="gift-o" title="我收到的礼物" is-link />
     </van-cell-group>
-   <h1>用户中心页！</h1>
-   <van-button type="primary" @click="shopcarthandle" size="large">购物车页！</van-button>
+   <van-button type="primary" @click="shopcarthandle" size="large">购物车页</van-button>
+   <van-button type="warning" @click="loginout" size="large">退出登录</van-button>
   </div>
 </template>
 <script>
@@ -47,6 +47,13 @@ export default {
     shopcarthandle(){
       this.$router.push({
         name:'ShopCart',
+      })
+    },
+    loginout(){
+      sessionStorage.removeItem("userName");
+      sessionStorage.removeItem("token");
+       this.$router.push({
+        name:'Login',
       })
     }
   }
